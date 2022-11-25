@@ -1,0 +1,33 @@
+{
+  "name": "fixreddit",
+  "version": "0.0.0",
+  "description": "Embed Reddit videos on Discord",
+  "author": {
+    "name": "realjame",
+    "email": "james@realja.me",
+    "url": "https://realja.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/real-jame/fixreddit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/real-jame/fixreddit/issues",
+    "email": "james@realja.me"
+  },
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20221111.1",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "prettier": "^2.8.0",
+    "typescript": "^4.9.3",
+    "wrangler": "2.4.4"
+  },
+  "private": true,
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish"
+  }
+}
