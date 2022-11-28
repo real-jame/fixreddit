@@ -30,7 +30,8 @@ export default {
 	): Promise<Response> {
 		console.log(request);
 
-		const handledResponse = await handleRequest();
+		// Remove the "fx" from the url to make it a reddit.com link
+		const handledResponse = await handleRequest(request.url.replace("fx", ""));
 
 		return new Response(handledResponse, {
 			headers: Constants.RESPONSE_HEADERS,
