@@ -33,9 +33,13 @@ export default {
 		// Remove the "fx" from the url to make it a reddit.com link
 		const handledResponse = await handleRequest(request.url.replace("fx", ""));
 
-		return new Response(handledResponse, {
-			headers: Constants.RESPONSE_HEADERS,
-			status: 200,
-		});
+		return new Response(
+			handledResponse +
+				"<a href='http://localhost:8787/r/Damnthatsinteresting/comments/zazv2m/how_qantas_treats_your_baggage/'>test a reddit video link</a>",
+			{
+				headers: Constants.RESPONSE_HEADERS,
+				status: 200,
+			}
+		);
 	},
 };

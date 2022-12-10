@@ -7,8 +7,10 @@ function generateSessionId() {
 }
 
 export const redditFetch = async (url: string) => {
-	const slug = (url: string) => new URL(url).pathname.match(/[^V]+/g);
-	const subdomain = ""; //TODO
+	const slug = new URL(url).pathname.match(/[^V]+/g);
+	// console.log("SLUG IS:", slug);
+
+	const subdomain = "i."; //TODO
 
 	const headers = {
 		Cookie: [
@@ -17,9 +19,22 @@ export const redditFetch = async (url: string) => {
 		],
 	};
 
-	const data = await fetch(`https://${subdomain}reddit.com/r/${slug}.json`, {
+	// console.log(`https://${subdomain}reddit.com${slug}.json`);
+
+	const response = await fetch(`https://${subdomain}reddit.com${slug}.json`, {
 		method: "GET",
 	});
+	const dataAll = await response.json();
+
+	try {
+		// TODO error checking
+		// @ts-ignore
+		const data = dataAll[0]["data"]["children"][0]["data"];
+		console.log("DATA IS", data);
+	} catch {
+		console.log("Failed!");
+	}
 
 	// TODO: parse reddit's data for just the parts what we need, and return that.
+	console.log("RESPONSE IS", response);
 };
