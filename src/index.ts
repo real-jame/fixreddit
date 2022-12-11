@@ -28,8 +28,6 @@ export default {
 		env: Env,
 		ctx: ExecutionContext
 	): Promise<Response> {
-		console.log(request);
-
 		// Remove the "fx" from the url to make it a reddit.com link
 		const handledResponse = await handleRequest(request.url.replace("fx", ""));
 
