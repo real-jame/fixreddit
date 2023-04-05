@@ -39,21 +39,24 @@ type Video = {
 	duration: number;
 };
 
+// TODO: missing values which can't be directly transferred from a raw response
 type Post = {
 	subreddit: string;
-	url: string;
+	// url: string;
 	title: string;
 	body_text?: string;
-	created_at: string;
+	created_at: number;
 
 	upvotes: number;
 	downvotes: number;
-	replies: number;
+	// replies: number;
 
 	author: string;
-	award_count: number;
+	// award_count: number;
 
 	media: {
 		video?: Video;
 	};
 };
+
+export {VideoRaw, PostRaw, Video, Post}

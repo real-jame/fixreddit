@@ -34,8 +34,10 @@ export const redditFetch = async (url: string) => {
 		const data = dataAll[0]["data"]["children"][0]["data"];
 		console.log("Success!");
 		console.log("DATA IS", data);
-	} catch {
-		console.log("Failed!");
+
+		return data;
+	} catch (error) {
+		console.log("Failed! ", error);
 	}
 
 	// TODO: parse reddit's data for just the parts what we need, and return that.
